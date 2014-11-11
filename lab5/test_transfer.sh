@@ -34,8 +34,8 @@ trap cleanup EXIT
 
 ./get-phantomjs.sh
 
-echo "Generating reference images..."
-setup_server
-$HOME/phantomjs lab5-tests/make-reference-images.js
+#echo "Generating reference images..."
+#setup_server
+#$HOME/phantomjs lab5-tests/make-reference-images.js
 
 run_test "Attack 2" lab5-tests/attack-bug2.js
