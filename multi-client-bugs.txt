@@ -1,0 +1,109 @@
+bug #1: registering two users at once
+
+Function with the bug:
+def register(username, password):
+    db = person_setup()
+    person = db.query(Person).get(username)
+    if person:
+        return None
+    newperson = Person()
+    newperson.username = username
+    newperson.password = password
+    db.add(newperson)
+    db.commit()
+    return newtoken(db, newperson)
+
+Explanation:
+before db.commit() is called, register() is invoked twice which will add the same user twice with db.add()
+this is possible since db.query(Person).get(username) will return NULL until commit() called.
+Then the two instances will commit the same user twice.
+
+Result:
+possibility one: sqlalchemy fails at this point
+possibility two: both users get inserted. Next time one of the user logs in sqlalchemy calls get()
+		 and this might fail because specs on get() function says that
+		 "get() is only used to return a single mapped instance"
+		 http://docs.sqlalchemy.org/en/rel_0_9/orm/query.html
+
+
+
+bug #2: A sending zoobar twice to B
+
+Function with the bug:
+def transfer(sender, recipient, zoobars):
+    persondb = person_setup()
+    senderp = persondb.query(Person).get(sender)
+    recipientp = persondb.query(Person).get(recipient)
+
+    sender_balance = senderp.zoobars - zoobars
+    recipient_balance = recipientp.zoobars + zoobars
+
+    if sender_balance < 0 or recipient_balance < 0:
+        raise ValueError()
+
+    senderp.zoobars = sender_balance
+    recipientp.zoobars = recipient_balance
+    persondb.commit()
+
+    transfer = Transfer()
+    transfer.sender = sender
+    transfer.recipient = recipient
+    transfer.amount = zoobars
+    transfer.time = time.asctime()
+
+    transferdb = transfer_setup()
+    transferdb.add(transfer)
+    transferdb.commit()
+
+Explanation:
+A invokes two transfer() functions before persondb.commit() is called. persondb gets written with the same
+value twice and transfer will record two transfers when only one took place. 
+
+Result:
+A invokes transfer of 5 zoobars twice. B receives only 5, but transfer log will show two instances of sending 5
+which means A can claim he has sent 10 zoobars to B while he had only sent 5 zoobars
+
+
+
+bug #3: A and B sending C zoobar
+
+Function with the bug:
+def transfer(sender, recipient, zoobars):
+    persondb = person_setup()
+    senderp = persondb.query(Person).get(sender)
+    recipientp = persondb.query(Person).get(recipient)
+
+    sender_balance = senderp.zoobars - zoobars
+    recipient_balance = recipientp.zoobars + zoobars
+
+    if sender_balance < 0 or recipient_balance < 0:
+        raise ValueError()
+
+    senderp.zoobars = sender_balance
+    recipientp.zoobars = recipient_balance
+    persondb.commit()
+
+    transfer = Transfer()
+    transfer.sender = sender
+    transfer.recipient = recipient
+    transfer.amount = zoobars
+    transfer.time = time.asctime()
+
+    transferdb = transfer_setup()
+    transferdb.add(transfer)
+    transferdb.commit()
+
+Explanation:
+A starts with 100 zoobars
+B starts with 10 zoobars
+C starts with 10 zoobars
+
+A sends C 100 zoobars. Right before persondb.commit() is called B finishes get(sender) and get(recipient) which 
+returns 10 zoobars for C and B. Now, A finishes persondb.commit(), which causes C to be at 110 and A at 0. Now,
+B calls persondb.commit() which causes B to go down to 0, AND cause C to go down to 20 zoobars instead of 130.
+
+
+Result at:
+A 0 zoobars
+B 0 zoobars
+C 20 zoobars
