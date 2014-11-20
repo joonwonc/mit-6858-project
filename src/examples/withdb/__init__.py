@@ -6,10 +6,13 @@ from db import *
 
 if __name__ == "__main__":
     print "__main__ from __init__.py"
-    numberdb = setup("number", NumberBase)
+    persondb = person_setup()
+    newperson1 = Person()
+    newperson1.username = "kyelok"
+    newperson2 = Person()
+    newperson2.username = "cwchung"
 
-    newuser = Number()
-    newuser.username = "user"
-    numberdb.add(newuser)
+    persondb.add(newperson1)
+    persondb.add(newperson2)
 
-    numberdb.commit()
+    persondb.commit()
