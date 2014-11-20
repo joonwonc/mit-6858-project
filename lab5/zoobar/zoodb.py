@@ -12,7 +12,7 @@ class Person(PersonBase):
     username = Column(String(128), primary_key=True)
     password = Column(String(128))
     token = Column(String(128))
-    zoobars = Column(Integer, nullable=False, default=10)
+    zoobars = Column(Integer, nullable=False, default=100)
     profile = Column(String(5000), nullable=False, default="")
 
 class Transfer(TransferBase):

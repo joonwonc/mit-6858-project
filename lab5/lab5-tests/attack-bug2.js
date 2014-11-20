@@ -21,14 +21,13 @@ function main(studentDir) {
         // load grader's cookies
         phantom.cookies = auth.graderCookies;
         // transfer zoobars to the attacker
-        grading.transferZoobars("attacker", 2, function() {
+        grading.transferZoobars("attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
                 phantom.exit();
             });
         });
-        console.log("asdfasdfasdf");
     });
 }
 
