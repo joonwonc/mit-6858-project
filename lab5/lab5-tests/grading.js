@@ -116,12 +116,12 @@ function getZoobars(cb) {
     openOrDie(page, zoobarBase + "transfer", function() {
         page.onCallback = function(data) {
             page.onCallback = null;
-	    console.log("get zoobar load begin");
+        console.log("get zoobar load begin");
             cb(data);
-	    console.log("get zoobar load");
+        console.log("get zoobar load");
         };
         page.evaluate(function() {
-	    console.log("get zoobar evaluate begin");
+        console.log("get zoobar evaluate begin");
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "zoobarjs", true);
             xhr.responseType = "text";
@@ -243,14 +243,13 @@ function transferZoobars(recipient, amount, cb) {
     console.log("in the function");
     var page = webpage.create();
     openOrDie(page, zoobarBase + "transfer", function() {
-        page.onCallback = function(data) {
-            page.onCallback = null;
-	    console.log("loading page ...");
-            cb(data);
-	    console.log("loading page finished");
+        page.onLoadFinished = function(status){
+            page.onLoadFinished = null;
+   //         page.close();
+            cb();
         };
         page.evaluate(function(recipient, amount) {
-	    console.log("in evaluate");
+        console.log("in evaluate");
             var f = document.forms["transferform"];
             f.zoobars.value = amount;
             f.recipient.value = recipient;
@@ -258,7 +257,6 @@ function transferZoobars(recipient, amount, cb) {
         }, recipient, amount);
     });
     console.log("closing the page");
-    page.close();
 }
 exports.transferZoobars = transferZoobars;
 

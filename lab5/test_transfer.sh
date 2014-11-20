@@ -30,7 +30,7 @@ run_test() {
 }
 
 cleanup
-trap cleanup EXIT
+#trap cleanup EXIT
 
 ./get-phantomjs.sh
 
