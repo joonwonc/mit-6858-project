@@ -21,6 +21,8 @@ function main(studentDir) {
         // load grader's cookies
         phantom.cookies = auth.graderCookies;
         // transfer zoobars to the attacker
+        
+        // begin 10
         grading.transferZoobars("attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
@@ -28,6 +30,808 @@ function main(studentDir) {
                 phantom.exit();
             });
         });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
+     // begin 10
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        
+        grading.transferZoobars("attacker", 1, function() {
+            phantom.cookies = auth.attackerCookies;
+            grading.getZoobars(function(number2) {
+                console.log("attacker has: " + number2);
+                phantom.exit();
+            });
+        });
+        // end of 10
     });
 }
 
