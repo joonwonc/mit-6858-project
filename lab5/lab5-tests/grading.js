@@ -243,10 +243,10 @@ function transferZoobars(recipient, amount, cb) {
     console.log("in the function");
     var page = webpage.create();
     openOrDie(page, zoobarBase + "transfer", function() {
-        page.onLoadFinished = function(status) {
-            page.onLoadFinished = null;
+        page.onCallback = function(data) {
+            page.onCallback = null;
 	    console.log("loading page ...");
-            cb();
+            cb(data);
 	    console.log("loading page finished");
         };
         page.evaluate(function(recipient, amount) {
