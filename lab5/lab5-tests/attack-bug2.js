@@ -26,7 +26,7 @@ function main(studentDir) {
         grading.transferZoobars("attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
-                console.log("attacker has: " + number2);
+                console.log("1 attacker has: " + number2);
                 phantom.exit();
             });
         });
@@ -34,12 +34,12 @@ function main(studentDir) {
         grading.transferZoobars("attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
-                console.log("attacker has: " + number2);
+                console.log("2 attacker has: " + number2);
                 phantom.exit();
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("3 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -47,7 +47,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("4 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -55,7 +55,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("5 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -63,7 +63,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("6 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -71,7 +71,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("7 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -79,7 +79,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("8 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -87,7 +87,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("9 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
@@ -95,7 +95,7 @@ function main(studentDir) {
             });
         });
         
-        grading.transferZoobars("attacker", 1, function() {
+        grading.transferZoobars("10 attacker", 1, function() {
             phantom.cookies = auth.attackerCookies;
             grading.getZoobars(function(number2) {
                 console.log("attacker has: " + number2);
