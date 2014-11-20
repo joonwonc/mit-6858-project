@@ -234,3 +234,41 @@ function registerTimeout(seconds) {
     }, seconds * 1000);
 }
 exports.registerTimeout = registerTimeout;
+
+// transfer zoobars -- added by Kyel Ok on 2014-11-19
+function transferZoobars(recipient, amount, cb) {
+    var page = webpage.create();
+    openOrDie(page, zoobarBase + "transfer", function() {
+        page.onLoadFinished = function(status) {
+            page.onLoadFinished = null;
+            page.close();
+            cb();
+        };
+        page.evaluate(function(recipient, amount) {
+            var f = document.forms["transferform"];
+            f.zoobars.value = amount;
+            f.recipient.value = recipient;
+            f.submission.click();
+        }, recipient, amount);
+    });
+}
+exports.transferZoobars = transferZoobars;
+
+//setup users for our test case -- added by Kyel Ok on 2014-11-19
+function initUsersK(cb, graderPassword) {
+    if (graderPassword === undefined)
+        graderPassword = "graderpassword";
+    zoobarRegister("grader", graderPassword, function() {
+        var graderCookies = phantom.cookies.slice(0);
+        phantom.clearCookies();
+        zoobarRegister("attacker", "attackerpassword", function() {
+            var attackerCookies = phantom.cookies.slice(0);
+            phantom.clearCookies();
+            cb({
+                graderCookies: graderCookies,
+                attackerCookies: attackerCookies
+            });
+        });
+    });
+}
+exports.initUsersK = initUsersK;
