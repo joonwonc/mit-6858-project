@@ -205,8 +205,13 @@ We have developed attack scripts (please check our
 details) to confirm these bugs can actually be triggered. The
 screenshots of the results are as follows:
 
+- Client-side error of [bug 1](https://github.com/joonwonc/mit-6858-project/blob/master/docs/update-email.md#bug-1-registering-two-users-at-once)
 ![Attack screenshot 1](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug1-client.png)
+
+- Server-side error of [bug 1](https://github.com/joonwonc/mit-6858-project/blob/master/docs/update-email.md#bug-1-registering-two-users-at-once)
 ![Attack screenshot 2](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug1-server.png)
+
+- Attack result of [bug 2](https://github.com/joonwonc/mit-6858-project/blob/master/docs/update-email.md#bug-2-a-sending-zoobar-twice-to-b)
 ![Attack screenshot 3](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug2.png)
 
 Remaining work
