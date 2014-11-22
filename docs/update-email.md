@@ -1,7 +1,7 @@
 Updated proposal and schedule
 =============================
 
-First, we thank the staff for detailed feedback and genuine concerns
+First, we thank the staff for detailed feedback and concerns
 about the weaknesses in the previously submitted proposal. In this
 update, we would like to present the following.
 
@@ -10,7 +10,7 @@ update, we would like to present the following.
 3. Preliminary work in exploring the problem
    - New bugs found in zoobar code
    - Attack scripts to confirm the bugs
-   - Discuss the remaining work, schedule and deliverables
+   - Discuss the remaining work and give a brief timeline
 
 Discussing the feedback
 -----------------------
@@ -21,7 +21,7 @@ To review the feedback received:
    to security or in the scope of the 6.858 class
 2. It would be interesting to run an updated concolic execution on the
    code submitted by our classmates.
-3. The most interstesting and challenging aspect of incorporating IPC
+3. The most interesting and challenging aspect of incorporating IPC
    in concolic execution is the non-determinism introduced.
 
 First, we agree that symbolic execution alone is not directly related
@@ -62,13 +62,10 @@ site implicitly assumes that covering all branching conditions of a
 program can capture all the states the program can be in. While this
 is true for a single-client model, if there are multiple clients
 connected to the server, the state of a single user is dependent on
-the states of all the other users interacting with the server.
-
-Therefore, covering the states of one user does not cover all the
-states of the entire system, i.e. the result of a single user's action
-is also dependent on actions of all the other users. In order to truly
-cover all the states of a server that can accept multiple clients, a
-concolic execution must account for the actions of the other users.
+the states of all the other users interacting with the server. In
+order to truly cover all the states of a server that can accept
+multiple clients, a concolic execution must account for the actions of
+the other users.
 
 Updated proposal
 ----------------
@@ -76,7 +73,7 @@ Updated proposal
 Thus, we would like to update the problem statement of the proposal as
 follows:
 
-We would like to modify the current concolic execution system to
+We propose to modify the current concolic execution system to
 support a multi-client model by introducing a "multi-trace concolic
 execution" system.
    
@@ -89,14 +86,11 @@ We would like to demonstrate our multi-trace concolic execution
 framework by using it to capture any security problems in the zoobar
 application when several users are using it at the same time.
 
-*need to explain our methodology*
-*how to decrease input-space?*
-
 Preliminary work in exploring the problem
 -----------------------------------------
 
 To verify our hypothesis that the same action performed by a single
-user is also depedent on the actions of other users, we analyzed the
+user is also dependent on the actions of other users, we analyzed the
 zoobar code for locations where resources are shared between clients.
 We have discovered 3 potential bugs in the zoobar code that are caused
 by multiple clients interacting with the server. We have developed
@@ -211,11 +205,22 @@ We have developed attack scripts (please check our
 details) to confirm these bugs can actually be triggered. The
 screenshots of the results are as follows:
 
-![Attack screenshot 1](http://...)
-![Attack screenshot 2](http://...)
-![Attack screenshot 3](http://...)
+![Attack screenshot 1](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug1-client.png)
+![Attack screenshot 2](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug1-server.png)
+![Attack screenshot 3](https://github.com/joonwonc/mit-6858-project/blob/master/docs/bug2.png)
 
-Remaining work, schedule and deliverables
------------------------------------------
+Remaining work
+--------------
 
-Fill in here please ___
+Now that we have successfully confirmed the multi-client bugs
+in zoobar, we would like to detect these automatically using
+a concolic execution framework.
+We plan to implement this by having a higher-level framework that
+forks off several concolic execution instances similar to the one
+used in Lab 3. Then, we plan to suggest fixes for the bugs found.
+
+We plan to implement the above as follows:
+
+- Dec 3: Finish implementing multi-trace concolic execution framework
+- Dec 5: Suggest fixes for the bugs found
+- Dec 8: Explore the theoretical meaning of our framework
