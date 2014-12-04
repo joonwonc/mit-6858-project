@@ -8,6 +8,9 @@ def inc(username):
     numberdb = setup("number", NumberBase)
     user = numberdb.query(Number).get(username)
 
+    if (user == None):
+        return
+
     usernum = user.number
 
     if (usernum >= 10):
