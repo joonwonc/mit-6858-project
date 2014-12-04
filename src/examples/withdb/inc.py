@@ -5,8 +5,8 @@ from sqlalchemy.ext.declarative import *
 from db import *
 
 def inc(username):
-    numberdb = setup("number", Base)
-    user = numberdb.query(Base).get(username)
+    numberdb = setup("number", NumberBase)
+    user = numberdb.query(Number).get(username)
 
     usernum = user.number
 
@@ -21,7 +21,7 @@ def inc(username):
 
 if __name__ == "__main__":
     print "__main__ from inc.py"
-    numberdb = setup("number", Base)
+    numberdb = setup("number", NumberBase)
 
     inc("user")
 

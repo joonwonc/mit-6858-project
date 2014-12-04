@@ -5,9 +5,9 @@ from sqlalchemy.ext.declarative import *
 import sys
 import os
 
-Base = declarative_base()
+NumberBase = declarative_base()
 
-class Number(Base):
+class Number(NumberBase):
     __tablename__ = "number"
     username = Column(String(128), primary_key=True)
     number = Column(Integer, nullable=False, default=0)
@@ -26,4 +26,4 @@ def setup(name, base):
 
 if __name__ == "__main__":
     print "__main__ from db.py"
-    setup("number", Base)
+    setup("number", NumberBase)
