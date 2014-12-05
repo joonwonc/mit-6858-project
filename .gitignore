@@ -2,3 +2,6 @@
 /.cproject
 /src/examples/withdb/*.pyc
 /src/examples/withdb/db
+/src/symex/*.pyc
+/src/symex/z3py/*.pyc
+
