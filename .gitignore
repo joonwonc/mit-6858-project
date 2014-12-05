@@ -1,0 +1,4 @@
+/.project
+/.cproject
+/src/examples/withdb/*.pyc
+/src/examples/withdb/db
