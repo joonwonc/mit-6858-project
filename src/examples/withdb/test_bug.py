@@ -2,6 +2,8 @@ import sys
 sys.path.append("../../symex")
 import fuzzy
 import symsql
+import time
+import random
 
 from bank import *
 from db import *
@@ -32,7 +34,20 @@ def verify_result():
         prestate[t.recipient] += t.amount
         prestate[t.sender] -= t.amount
 
-    return cmp(prestate,prostate)
+    if (cmp(prestate,prostate) != 0):
+        print prestate
+        print prostate
+        return False
+
+    return True
+
+def do_concolic_test():
+    # try:
+        print "Concolic test begins..."
+        #time.sleep(random.random()/1000.0)
+        fuzzy.concolic_test(test_bug2, maxiter=2000, verbose=1)
+    # except:
+    #     print "Crash Gotcha!"
 
 #    numberdb = setup("number", NumberBase)
 #    user = numberdb.query(Number).get(username)

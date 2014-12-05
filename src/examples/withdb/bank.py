@@ -7,6 +7,9 @@ def transfer(sender, recipient, zoobars):
     senderp = persondb.query(Person).get(sender)
     recipientp = persondb.query(Person).get(recipient)
 
+    if (senderp == None or recipientp == None):
+        return None
+
     sender_balance = senderp.zoobars - zoobars
     recipient_balance = recipientp.zoobars + zoobars
 
