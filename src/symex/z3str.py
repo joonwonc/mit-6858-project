@@ -8,8 +8,12 @@ sys.path = [z3strdir + '/z3py'] + sys.path
 
 ## Force Z3's python bindings to load the libz3str.so library
 import z3
+import struct
 def find_lib_stub():
-  return z3strdir + '/libz3str.so'
+  if struct.calcsize("P") == 8:
+    return z3strdir + '/libz3str64.so'
+  else:
+    return z3strdir + '/libz3str.so'
 z3.z3core._find_lib = find_lib_stub
 
 ## Enable ctypes for the z3str_*() functions in libz3str.so
