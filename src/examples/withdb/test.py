@@ -22,4 +22,10 @@ def test():
         print "Gotcha!"
         return
 
-fuzzy.concolic_test(test, maxiter=2000, verbose=1)
+def do_concolic_test():
+    try:
+        print "Concolic test begins..."
+        fuzzy.concolic_test(test, maxiter=2000, verbose=1)
+    except:
+        print "Crash Gotcha!"
+
