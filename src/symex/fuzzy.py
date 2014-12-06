@@ -10,6 +10,10 @@ import operator
 import inspect
 import __builtin__
 
+import os
+import time
+import threading
+
 ## Our AST structure
 
 class sym_ast(object):
@@ -330,8 +334,9 @@ def simplify(e):
 
 ## Current path constraint
 
-cur_path_constr = None
-cur_path_constr_callers = None
+procs_map = {}
+cur_path_constr = {}
+cur_path_constr_callers = {}
 
 def get_caller():
   frame = inspect.currentframe()
@@ -348,9 +353,13 @@ def get_caller():
     del frame
 
 def add_constr(e):
+  global procs_map
+  pidx = procs_map[threading.current_thread().ident]
+
   global cur_path_constr, cur_path_constr_callers
-  cur_path_constr.append(simplify(e))
-  cur_path_constr_callers.append(get_caller())
+
+  cur_path_constr[pidx].append(simplify(e))
+  # cur_path_constr_callers[pidx].append(get_caller())
 
 ## This exception is thrown when a required symbolic condition
 ## is not met; the symbolic execution engine should retry with
@@ -651,6 +660,22 @@ __builtin__.len = xlen
 
 ## Track inputs that should be tried later
 
+from itertools import *
+class Permutator(object):
+  def __init__(self, domain, dim = 1):
+    self.domain = domain
+    self.dim = dim
+    self.permutator = product(domain, repeat = dim)
+
+  def get(self):
+    if (len(self.domain) > 0 and self.dim > 0):
+      return self.permutator
+    else:
+      self.domain = [{'dummy':0}]
+      self.repeat = 1
+      self.permutator = product(self.domain, repeat = self.repeat)
+      return self.permutator
+
 class InputQueue(object):
   def __init__(self):
     ## "inputs" is a priority queue storing inputs we should try.
@@ -684,16 +709,35 @@ class InputQueue(object):
 concrete_values = {}
 
 def mk_int(id):
+  global procs_map
+  pidx = procs_map[threading.current_thread().ident]
+  
   global concrete_values
-  if id not in concrete_values:
-    concrete_values[id] = 0
-  return concolic_int(sym_int(id), concrete_values[id])
+  if pidx not in concrete_values:
+    concrete_values[pidx] = {}
 
+  if id not in concrete_values[pidx]:
+    concrete_values[pidx][id] = 0
+
+  return concolic_int(sym_int(id), concrete_values[pidx][id])
+
+# mk_str_lock = threading.Lock()
+#   mk_str_lock.acquire()
+#   mk_str_lock.release()
 def mk_str(id):
+  global procs_map
+  pidx = procs_map[threading.current_thread().ident]
+
   global concrete_values
-  if id not in concrete_values:
-    concrete_values[id] = ''
-  return concolic_str(sym_str(id), concrete_values[id])
+  if pidx not in concrete_values:
+    concrete_values[pidx] = {}
+
+  if id not in concrete_values[pidx]:
+    concrete_values[pidx][id] = ''
+
+  res = concolic_str(sym_str(id), concrete_values[pidx][id])
+
+  return res
 
 def make_next_constr_expr(constr_list):
   clen = len(constr_list)
@@ -704,54 +748,84 @@ def make_next_constr_expr(constr_list):
   constr_expr = sym_and(sym_eq(constr_list[clen-1].a, ast(not constr_list[clen-1].b.b)), constr_expr)
   return constr_expr
 
-def concolic_test(testfunc, maxiter = 100, verbose = 0):
+from multiprocessing import *
+
+def do_nothing():
+  return
+
+## TODO: implement repetition, maxiter
+def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
+                  maxiter = 10000, maxproc = 2, repetition = 5, verbose = 0):
   ## "checked" is the set of constraints we already sent to Z3 for
   ## checking.  use this to eliminate duplicate paths.
   checked = set()
 
-  ## list of inputs we should try to explore.
-  inputs = InputQueue()
+  ## "permutation" is the set of inputs that we have explored
+  old_permutation = []
+  permutation = []
 
-  iter = 0
-  while iter < maxiter and not inputs.empty():
-    iter += 1
+  global procs_map
+  global concrete_values
+  global cur_path_constr, cur_path_constr_callers
 
-    global concrete_values
-    concrete_values = inputs.get()
+  for numproc in range(maxproc):
+    numproc = numproc + 1
 
-    global cur_path_constr, cur_path_constr_callers
-    cur_path_constr = []
-    cur_path_constr_callers = []
+    while True:
 
-    if verbose > 0:
-      print 'Trying concrete values:', concrete_values
+      ## list of inputs we should try to explore.
+      inputs = Permutator(permutation, numproc)
+      old_permutation = list(permutation)
 
-    try:
-      testfunc()
-    except RequireMismatch:
-      pass
+      for input in inputs.get():
+        if verbose > 0:
+          print 'Trying concrete values:', input
 
-    if verbose > 1:
-      print 'Test generated', len(cur_path_constr), 'branches:'
-      for (c, caller) in zip(cur_path_constr, cur_path_constr_callers):
-        print indent(z3expr(c, True)), '@', '%s:%d' % (caller[0], caller[1])
+        pidx = 0
+        for per_input in input:
+          concrete_values[pidx] = per_input
+          cur_path_constr[pidx] = []
+          # cur_path_constr_callers[pidx] = []
+          pidx = pidx + 1
 
-    ## for each branch, invoke Z3 to find an input that would go
-    ## the other way, and add it to the list of inputs to explore.
+        ## Initialization
+        initfunc()
 
-    ## Exercise 3: your code here.
-    clen = len(cur_path_constr)
-    for i in range(clen, 0, -1):
-      constr_expr = make_next_constr_expr(cur_path_constr[0:i])
-      if constr_expr in checked:
-        continue
+        ## process vector
+        procs = {}
+        procs_map = {}
+        for i in range(pidx):
+          procs[i] = threading.Thread(target=testfunc)
 
-      checked.add(constr_expr)
+        try:
+          for i in range(pidx):
+            procs[i].start()
+            procs_map[procs[i].ident] = i
+        except RequireMismatch:
+          pass
 
-      (ok, model) = fork_and_check(constr_expr)
-      if ok == z3.sat:
-        inputs.add(model, cur_path_constr_callers[i-1])
+        ## Let's join threads
+        for i in range(pidx):
+          procs[i].join()
+
+        ## Verification
+        verifyfunc()
+
+        ## Now try to increase permutation pool
+        for i in range(pidx):
+          clen = len(cur_path_constr[i])
+
+          for ci in range(clen, 0, -1):
+            constr_expr = make_next_constr_expr(cur_path_constr[i][0:ci])
+            if constr_expr in checked:
+              continue
+
+            checked.add(constr_expr)
+
+            (ok, model) = fork_and_check(constr_expr)
+            if ok == z3.sat:
+              permutation.append(model)
+              break
+
+      if (old_permutation == permutation):
         break
-
-  if verbose > 0:
-    print 'Stopping after', iter, 'iterations'

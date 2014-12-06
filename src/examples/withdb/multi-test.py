@@ -17,6 +17,10 @@ def multi_test(target_func, num_proc, ss):
     for n in range(num_proc):
         p[n].start()
 
+    some_alive = True
+    while some_alive:
+      for n in range(num_proc):
+        
     return ss()
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ def test():
 
     numberdb = setup("number", NumberBase)
     user = numberdb.query(Number).get(username)
-
+    
     if (user == None):
         return
 
