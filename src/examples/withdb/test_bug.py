@@ -39,13 +39,10 @@ def verify_result():
         prestate[t.recipient] += t.amount
         prestate[t.sender] -= t.amount
 
-    print "Prestate: ", prestate
-    print "Prostate: ", prostate
-
     if (cmp(prestate,prostate) != 0):
-        print prestate
-        print prostate
         print "Verification: Gotcha!"
+        print "Prestate: ", prestate
+        print "Prostate: ", prostate
         return False
 
     return True
