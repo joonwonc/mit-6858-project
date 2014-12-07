@@ -817,10 +817,10 @@ def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
           procs[i].join()
 
         ## Verification
-        #verifyfunc()
-        if verifyfunc() == False:
-          print >> sys.stderr, "tried concrete values: ", input
-          quit()
+        verifyfunc(input,delta)
+        #if verifyfunc(input) == False:
+          #print >> sys.stderr, "tried concrete values: ", input
+        #  quit()
 
         ## Now try to increase permutation pool
         for i in range(pidx):

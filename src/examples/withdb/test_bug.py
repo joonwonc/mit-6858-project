@@ -23,17 +23,17 @@ def test_bug1():
 
 def test_bug2():
     time.sleep(0.1)
-    username1 = fuzzy.mk_str('u1')
-    username2 = fuzzy.mk_str('u2')
+    username1 = fuzzy.mk_str('sd')
+    username2 = fuzzy.mk_str('rp')
     transfer(username1,username2,1)
 
 def init():
     os.system("make init")  
         
-def verify_result():
+def verify_result(concrete_value,delta):
     pdb = person_setup()
     tdb = transfer_setup()
-    
+
     prestate = {}
     prostate = {}
 
@@ -46,9 +46,10 @@ def verify_result():
         prestate[t.sender] -= t.amount
 
     if (cmp(prestate,prostate) != 0):
-        print >> sys.stderr, "Verification: Gotcha!"
-        print >> sys.stderr, "Prestate: ", prestate
-        print >> sys.stderr, "Prostate: ", prostate
+        print >> sys.stderr, "Gotcha! delta : ", delta ," test_vec: ", concrete_value, " prostate: ", prostate
+        #print >> sys.stderr, "Prestate: ", prestate
+        #print >> sys.stderr, "Prostate: ", prostate
+        #print >> sys.stderr, "Test Vectr: ", concrete_value
         return False
 
     return True
