@@ -10,6 +10,9 @@ def transfer(sender, recipient, zoobars):
     if (senderp == None or recipientp == None):
         return None
 
+    if (senderp.username == recipientp.username):
+        return None
+
     sender_balance = senderp.zoobars - zoobars
     recipient_balance = recipientp.zoobars + zoobars
 

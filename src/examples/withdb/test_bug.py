@@ -17,6 +17,7 @@ def test_bug1():
     register(username1)
 
 def test_bug2():
+    time.sleep(0.1)
     username1 = fuzzy.mk_str('u1')
     username2 = fuzzy.mk_str('u2')
     transfer(username1,username2,1)
