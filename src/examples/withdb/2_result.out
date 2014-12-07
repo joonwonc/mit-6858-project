@@ -1,0 +1,163 @@
+delta# 0.007 Started
+try# 0 Started
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 10, u'u2': 9}
+try# 1 Started
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 2 Started
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 10}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.007  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+delta# 0.007 Finished with counter=11
+delta# 0.0071 Started
+try# 0 Started
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 10}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 1 Started
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 2 Started
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 3 Started
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0071  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+delta# 0.0071 Finished with counter=12
+delta# 0.0072 Started
+try# 0 Started
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 1 Started
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 2 Started
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 12, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 10}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 12, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0072  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 10}
+delta# 0.0072 Finished with counter=12
+delta# 0.0073 Started
+try# 0 Started
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 12}
+try# 1 Started
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 12}
+try# 2 Started
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 12, u'u2': 9}
+Gotcha! delta :  0.0073  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 10, u'u2': 9}
+delta# 0.0073 Finished with counter=11
+delta# 0.0074 Started
+try# 0 Started
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 1 Started
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 2 Started
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 12, u'u2': 9}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 12}
+try# 4 Started
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 12, u'u2': 9}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.0074  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+delta# 0.0074 Finished with counter=11
+delta# 0.0075 Started
+try# 0 Started
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 1 Started
+try# 2 Started
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0075  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+delta# 0.0075 Finished with counter=6
+delta# 0.0076 Started
+try# 0 Started
+try# 1 Started
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 2 Started
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 3 Started
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+Gotcha! delta :  0.0076  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 11, u'u2': 9}
+delta# 0.0076 Finished with counter=7
+delta# 0.0077 Started
+try# 0 Started
+Gotcha! delta :  0.0077  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 1 Started
+Gotcha! delta :  0.0077  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0077  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 2 Started
+try# 3 Started
+Gotcha! delta :  0.0077  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 4 Started
+Gotcha! delta :  0.0077  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 10}
+delta# 0.0077 Finished with counter=5
+delta# 0.0078 Started
+try# 0 Started
+try# 1 Started
+Gotcha! delta :  0.0078  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 2 Started
+Gotcha! delta :  0.0078  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 3 Started
+Gotcha! delta :  0.0078  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 4 Started
+Gotcha! delta :  0.0078  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.0078  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+delta# 0.0078 Finished with counter=5
+delta# 0.0079 Started
+try# 0 Started
+try# 1 Started
+try# 2 Started
+Gotcha! delta :  0.0079  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+try# 3 Started
+try# 4 Started
+delta# 0.0079 Finished with counter=1
+delta# 0.008 Started
+try# 0 Started
+Gotcha! delta :  0.008  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.008  test_vec:  ({'rp': 'u1', 'sd': 'u2'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+Gotcha! delta :  0.008  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 11, u'u2': 9}
+Gotcha! delta :  0.008  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u2', 'sd': 'u1'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 1 Started
+try# 2 Started
+try# 3 Started
+Gotcha! delta :  0.008  test_vec:  ({'rp': 'u2', 'sd': 'u1'}, {'rp': 'u1', 'sd': 'u2'})  prostate:  {u'u1': 9, u'u2': 11}
+try# 4 Started
+delta# 0.008 Finished with counter=5

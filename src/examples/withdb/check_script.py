@@ -11,9 +11,11 @@ def file_read(pn):
 def sh(cmd, exit_onerr=True):
     os.system(cmd)
 
-delta = [0.007, 0.0071, 0.0072, 0.0073, 0.0074, 0.0075, 0.0076, 0.0077, 0.0078, 0.0079, 0.008]
+delta = [0.0074, 0.0075, 0.0076, 0.0077, 0.0078, 0.0079, 0.008, 0.0081, 0.0082]
 
-os.remove('result.out')
+if os.path.exists('result.out'):
+    os.remove('result.out')
+
 for d in delta:
     print "delta#", d
     counter = 0
