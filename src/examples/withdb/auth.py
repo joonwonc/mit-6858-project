@@ -7,6 +7,6 @@ def register(username):
         return None
     newperson = Person()
     newperson.username = username
-    db.add(newperson)
-    db.commit()
+    persondb.add(newperson)
+    persondb.commit()
     return

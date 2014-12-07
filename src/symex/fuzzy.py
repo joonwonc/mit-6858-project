@@ -803,6 +803,8 @@ def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
             procs_map[procs[i].ident] = i
         except RequireMismatch:
           pass
+        except:
+          print "I was car..."
 
         ## Let's join threads
         for i in range(pidx):

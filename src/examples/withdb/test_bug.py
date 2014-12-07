@@ -12,9 +12,14 @@ from db import *
 from auth import *
 
 def test_bug1():
-    username1 = fuzzy.mk_str('xxx')
-    #username1 = 'xxx'
-    register(username1)
+    time.sleep(0.1)
+
+    try:
+        username1 = fuzzy.mk_str('xxx')
+        #username1 = 'xxx'
+        register(username1)
+    except:
+        print "I was a car..."
 
 def test_bug2():
     time.sleep(0.1)
@@ -50,7 +55,7 @@ def verify_result():
 
 def do_concolic_test():
     print "Concolic test begins..."
-    fuzzy.concolic_test(test_bug2, initfunc=init, verifyfunc=verify_result, verbose=1)
+    fuzzy.concolic_test(test_bug1, initfunc=init, verifyfunc=verify_result, verbose=1)
 
 if __name__ == "__main__":
   do_concolic_test()
