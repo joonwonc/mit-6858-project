@@ -878,6 +878,7 @@ def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
 
           (ok, model) = fork_and_check(constr_expr)
           if ok == z3.sat:
-            if model not in permutation:
-              permutation.append(model)
+            #if model not in permutation:
+            #  permutation.append(model)
+            permutation.append(model)
             break
