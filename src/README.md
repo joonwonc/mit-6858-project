@@ -22,3 +22,13 @@ Examples
   test with following commands in the zoobar directory:
   - make test1
   - make test_smart1
+
+attack_bug2
+-----------
+* We made a attack script for bug 2 to actually emulate the bug in the
+  real world browser. After running the script, you can actually log-in
+  to zoobar (localhost:8080) with u2:u2 to see the transfer log and final
+  zoobar value.
+  - make check
+
+
