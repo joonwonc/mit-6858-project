@@ -30,16 +30,12 @@ run_test() {
 }
 
 cleanup
-trap cleanup EXIT
+#trap cleanup EXIT
 
 ./get-phantomjs.sh
 
-echo "Generating reference images..."
-setup_server
-$HOME/phantomjs lab5-tests/make-reference-images.js
+#echo "Generating reference images..."
+#setup_server
+#$HOME/phantomjs lab5-tests/make-reference-images.js
 
-run_test "Exercise 1" lab5-tests/grade-ex1.js
-run_test "Exercise 2" lab5-tests/grade-ex2.js
-run_test "Exercise 3" lab5-tests/grade-ex3.js
-run_test "Exercise 4" lab5-tests/grade-ex4.js
-run_test "Challenge" lab5-tests/grade-chal.js
+run_test "Attack 2" attack_scripts/attack-bug2.js

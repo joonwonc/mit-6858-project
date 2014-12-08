@@ -93,11 +93,11 @@ exports.zoobarRegister = zoobarRegister;
 
 function initUsers(cb, graderPassword) {
     if (graderPassword === undefined)
-        graderPassword = "graderpassword";
-    zoobarRegister("grader", graderPassword, function() {
+        graderPassword = "u1";
+    zoobarRegister("u1", graderPassword, function() {
         var graderCookies = phantom.cookies.slice(0);
         phantom.clearCookies();
-        zoobarRegister("attacker", "attackerpassword", function() {
+        zoobarRegister("u2", "u2", function() {
             var attackerCookies = phantom.cookies.slice(0);
             phantom.clearCookies();
             cb({

@@ -9,45 +9,12 @@ all: $(PROGS)
 
 zookld zookd zookfs: %: %.o http.o
 
-
 .PHONY: check
 check: $(PROGS)
-	./check-lab5.sh
-
-
-
-
-.PHONY: fix-flask
-fix-flask: fix-flask.sh
-	./fix-flask.sh
+	./check-bug2.sh
 
 .PHONY: clean
 clean:
 	rm -f *.o *.pyc *.bin $(PROGS)
 
 
-lab%-handin.tar.gz: clean
-	tar cf - `find . -type f | grep -v '^\.*$$' | grep -v '/CVS/' | grep -v '/\.svn/' | grep -v '/\.git/' | grep -v 'lab[0-9].*\.tar\.gz' | grep -v '/submit.token$$' | grep -v libz3str.so` | gzip > $@
-
-.PHONY: prepare-submit
-prepare-submit: lab5-handin.tar.gz
-
-.PHONY: prepare-submit-a
-prepare-submit-a: lab5a-handin.tar.gz
-
-.PHONY: prepare-submit-b
-prepare-submit-b: lab5b-handin.tar.gz
-
-.PHONY: submit-a
-submit-a: lab5a-handin.tar.gz
-	./submit.py $<
-
-.PHONY: submit-b
-submit-b: lab5b-handin.tar.gz
-	./submit.py $<
-
-.PHONY: submit
-submit: lab5-handin.tar.gz
-	./submit.py $<
-
-.PRECIOUS: lab5-handin.tar.gz
