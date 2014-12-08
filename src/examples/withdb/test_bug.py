@@ -19,7 +19,7 @@ def test_bug1():
         #username1 = 'xxx'
         register(username1)
     except:
-        print "Crashed!!!!"
+        print >> sys.stderr, "Crashed!!!!"
 
 def test_bug2():
     time.sleep(0.1)
@@ -46,16 +46,20 @@ def verify_result():
         prestate[t.sender] -= t.amount
 
     if (cmp(prestate,prostate) != 0):
-        print "Verification: Gotcha!"
-        print "Prestate: ", prestate
-        print "Prostate: ", prostate
+        print >> sys.stderr, "Verification: Gotcha!"
+        print >> sys.stderr, "Prestate: ", prestate
+        print >> sys.stderr, "Prostate: ", prostate
         return False
 
     return True
 
 def do_concolic_test():
+    #print len(sys.argv)
     print "Concolic test begins..."
-    fuzzy.concolic_test(test_bug2, initfunc=init, verifyfunc=verify_result, verbose=1)
+    if(len(sys.argv)>1):
+        fuzzy.concolic_test(test_bug2, initfunc=init, verifyfunc=verify_result, verbose=0, delta=float(sys.argv[1]))
+    else: 
+        fuzzy.concolic_test(test_bug2, initfunc=init, verifyfunc=verify_result, verbose=0)
 
 if __name__ == "__main__":
   do_concolic_test()

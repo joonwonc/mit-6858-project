@@ -755,7 +755,7 @@ def do_nothing():
 
 ## TODO: implement repetition, maxiter
 def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
-                  maxiter = 10000, maxproc = 2, repetition = 5, verbose = 0):
+                  maxiter = 10000, maxproc = 2, repetition = 5, verbose = 0, delta=0):
   ## "checked" is the set of constraints we already sent to Z3 for
   ## checking.  use this to eliminate duplicate paths.
   checked = set()
@@ -798,20 +798,29 @@ def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
           procs[i] = threading.Thread(target=testfunc)
 
         try:
-          for i in range(pidx):
-            procs[i].start()
-            procs_map[procs[i].ident] = i
+          if delta != 0:
+            for i in range(pidx):
+              procs[i].start()
+              procs_map[procs[i].ident] = i
+              time.sleep(delta)
+          else:
+            for i in range(pidx):
+              procs[i].start()
+              procs_map[procs[i].ident] = i
         except RequireMismatch:
           pass
         except:
-          print "I was car..."
+          print >> sys.stderr, "Crashed!!!!"
 
         ## Let's join threads
         for i in range(pidx):
           procs[i].join()
 
         ## Verification
-        verifyfunc()
+        #verifyfunc()
+        if verifyfunc() == False:
+          print >> sys.stderr, "tried concrete values: ", input
+          quit()
 
         ## Now try to increase permutation pool
         for i in range(pidx):

@@ -5,7 +5,7 @@ from sqlalchemy.ext.declarative import *
 from db import *
 
 if __name__ == "__main__":
-    print "__main__ from __init__.py"
+#    print "__main__ from __init__.py"
     persondb = person_setup()
     newperson1 = Person()
     newperson1.username = "u1"
