@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import sys
 sys.path.append("../../symex")
 import fuzzy
@@ -7,21 +9,12 @@ import random
 
 import os
 
+sys.path.append("./server/zoobar")
 from bank import *
-from db import *
+from zoodb import *
 from auth import *
 
-def test_bug1():
-    time.sleep(0.1)
-
-    try:
-        username1 = fuzzy.mk_str('xxx')
-        #username1 = 'xxx'
-        register(username1)
-    except:
-        print "I was a car..."
-
-def test_bug2():
+def test_bug():
     time.sleep(0.1)
     username1 = fuzzy.mk_str('u1')
     username2 = fuzzy.mk_str('u2')
@@ -55,7 +48,7 @@ def verify_result():
 
 def do_concolic_test():
     print "Concolic test begins..."
-    fuzzy.concolic_test(test_bug1, initfunc=init, verifyfunc=verify_result, verbose=1)
+    fuzzy.concolic_test(test_bug, initfunc=init, verifyfunc=verify_result, verbose=1)
 
 if __name__ == "__main__":
   do_concolic_test()
