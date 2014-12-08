@@ -336,6 +336,7 @@ def simplify(e):
 
 procs_map = {}
 cur_path_constr = {}
+cur_path_constr_callers = {}
 
 def get_caller():
   frame = inspect.currentframe()
@@ -355,9 +356,10 @@ def add_constr(e):
   global procs_map
   pidx = procs_map[threading.current_thread().ident]
 
-  global cur_path_constr
+  global cur_path_constr, cur_path_constr_callers
 
   cur_path_constr[pidx].append(simplify(e))
+  # cur_path_constr_callers[pidx].append(get_caller())
 
 ## This exception is thrown when a required symbolic condition
 ## is not met; the symbolic execution engine should retry with
@@ -751,12 +753,9 @@ from multiprocessing import *
 def do_nothing():
   return
 
-def filter_nothing(inputs):
-  return list(inputs)
-
 ## TODO: implement repetition, maxiter
 def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
-                  filterfunc = filter_nothing, maxproc = 2, verbose = 0):
+                  maxiter = 10000, maxproc = 2, repetition = 5, verbose = 0):
   ## "checked" is the set of constraints we already sent to Z3 for
   ## checking.  use this to eliminate duplicate paths.
   checked = set()
@@ -767,118 +766,69 @@ def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
 
   global procs_map
   global concrete_values
-  global cur_path_constr
+  global cur_path_constr, cur_path_constr_callers
 
-  ## for numproc = 1, we simply do concolic test and gather inputs
-  inputs = [{'dummy':0}]
-  inputs_gather = []
-  while len(inputs) > 0:
-    global concrete_values
-    concrete_values[0] = inputs[0]
-    inputs = inputs[1:len(inputs)]
-
-    cur_path_constr[0] = []
-
-    if verbose > 0:
-      print 'Trying concrete values:', concrete_values[0]
-
-    ## Initialization
-    initfunc()
-
-    ## process vector
-    procs = {}
-    procs_map = {}
-    procs[0] = threading.Thread(target=testfunc)
-
-    try:
-      procs[0].start()
-      procs_map[procs[0].ident] = 0
-    except RequireMismatch:
-      pass
-
-    ## Let's join threads
-    procs[0].join()
-
-    ## Verification
-    verifyfunc()
-
-    clen = len(cur_path_constr[0])
-    for i in range(clen, 0, -1):
-      constr_expr = make_next_constr_expr(cur_path_constr[0][0:i])
-      if constr_expr in checked:
-        continue
-
-      checked.add(constr_expr)
-
-      (ok, model) = fork_and_check(constr_expr)
-      if ok == z3.sat:
-        inputs.append(model)
-        if model not in inputs_gather:
-          inputs_gather.append(model)
-        break
-
-  ## filter
-  inputs_gather = filterfunc(inputs_gather)
-  print "numproc >=2 "
-  ## now for numproc >= 2
   for numproc in range(maxproc):
     numproc = numproc + 1
 
-    if numproc == 1:
-      continue
+    while True:
 
-    ## list of inputs we should try to explore.
-    inputs = Permutator(inputs_gather, numproc)
+      ## list of inputs we should try to explore.
+      inputs = Permutator(permutation, numproc)
+      old_permutation = list(permutation)
 
-    for input in inputs.get():
-      if verbose > 0:
-        print 'Trying concrete values:', input
+      for input in inputs.get():
+        if verbose > 0:
+          print 'Trying concrete values:', input
 
-      pidx = 0
-      for per_input in input:
-        concrete_values[pidx] = per_input
-        cur_path_constr[pidx] = []
-        pidx = pidx + 1
+        pidx = 0
+        for per_input in input:
+          concrete_values[pidx] = per_input
+          cur_path_constr[pidx] = []
+          # cur_path_constr_callers[pidx] = []
+          pidx = pidx + 1
 
-      ## Initialization
-      initfunc()
+        ## Initialization
+        initfunc()
 
-      ## process vector
-      procs = {}
-      procs_map = {}
-      for i in range(pidx):
-        procs[i] = threading.Thread(target=testfunc)
-
-      try:
+        ## process vector
+        procs = {}
+        procs_map = {}
         for i in range(pidx):
-          procs[i].start()
-          procs_map[procs[i].ident] = i
-      except RequireMismatch:
-        pass
-      except:
-        print "I was car..."
+          procs[i] = threading.Thread(target=testfunc)
 
-      ## Let's join threads
-      for i in range(pidx):
-        procs[i].join()
+        try:
+          for i in range(pidx):
+            procs[i].start()
+            procs_map[procs[i].ident] = i
+        except RequireMismatch:
+          pass
+        except:
+          print "I was car..."
 
-      ## Verification
-      verifyfunc()
+        ## Let's join threads
+        for i in range(pidx):
+          procs[i].join()
 
-      ## Now try to increase permutation pool
-      for i in range(pidx):
-        clen = len(cur_path_constr[i])
+        ## Verification
+        verifyfunc()
 
-        for ci in range(clen, 0, -1):
-          constr_expr = make_next_constr_expr(cur_path_constr[i][0:ci])
-          if constr_expr in checked:
-            continue
+        ## Now try to increase permutation pool
+        for i in range(pidx):
+          clen = len(cur_path_constr[i])
 
-          checked.add(constr_expr)
+          for ci in range(clen, 0, -1):
+            constr_expr = make_next_constr_expr(cur_path_constr[i][0:ci])
+            if constr_expr in checked:
+              continue
 
-          (ok, model) = fork_and_check(constr_expr)
-          if ok == z3.sat:
-            #if model not in permutation:
-            #  permutation.append(model)
-            permutation.append(model)
-            break
+            checked.add(constr_expr)
+
+            (ok, model) = fork_and_check(constr_expr)
+            if ok == z3.sat:
+              if model not in permutation:
+                permutation.append(model)
+              break
+
+      if (old_permutation == permutation):
+        break
