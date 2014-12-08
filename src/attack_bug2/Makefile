@@ -16,5 +16,3 @@ check: $(PROGS)
 .PHONY: clean
 clean:
 	rm -f *.o *.pyc *.bin $(PROGS)
-
-
