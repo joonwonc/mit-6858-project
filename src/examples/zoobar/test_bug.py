@@ -7,6 +7,7 @@ import symsql
 import time
 import random
 
+import sqlalchemy
 import os
 
 sys.path.append("./server/zoobar")
@@ -14,16 +15,35 @@ from bank import *
 from zoodb import *
 from auth import *
 
-def test_bug():
+## Test functions
+def test_bug1():
+    time.sleep(0.1)
+
+    try:
+        username = fuzzy.mk_str('username')
+        password = '1234'
+        register(username, password)
+    except sqlalchemy.exc.IntegrityError:
+        print "Verification: Gotcha!"
+
+def test_bug2():
     time.sleep(0.1)
     username1 = fuzzy.mk_str('u1')
     username2 = fuzzy.mk_str('u2')
     transfer(username1,username2,1)
 
-def init():
-    os.system("make init")  
-        
-def verify_result():
+## Initialization functions
+def init1():
+    os.system("make init")
+
+def init2():
+    os.system("make init")
+
+## Verification functions
+def verify1():
+    return True
+
+def verify2():
     pdb = person_setup()
     tdb = transfer_setup()
     
@@ -46,9 +66,10 @@ def verify_result():
 
     return True
 
+## Actual test function
 def do_concolic_test():
-    print "Concolic test begins..."
-    fuzzy.concolic_test(test_bug, initfunc=init, verifyfunc=verify_result, verbose=1)
+    print "Multi-trace concolic test begins..."
+    fuzzy.concolic_test(test_bug1, initfunc=init1, verifyfunc=verify1, verbose=1)
 
 if __name__ == "__main__":
   do_concolic_test()
