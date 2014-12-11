@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 import sys
 sys.path.append("../../symex")
@@ -27,12 +27,6 @@ from zoobar.auth import *
 
 def startresp(status, headers):
     return
-
-def test_bug():
-    time.sleep(0.1)
-    username1 = fuzzy.mk_str('u1')
-    username2 = fuzzy.mk_str('u2')
-    transfer(username1,username2,1)
 
 def adduser(pdb, username, token):
   u = Person()
@@ -63,13 +57,6 @@ def test_zoobar():
     environ['QUERY_STRING'] = 'query'
     environ['HTTP_REFERER'] = fuzzy.mk_str('referrer')
     environ['HTTP_COOKIE'] = fuzzy.mk_str('cookie')
-
-    ## In two cases, we over-restrict the inputs in order to reduce the
-    ## number of paths that "make check" explores, so that it finishes
-    ## in a reasonable amount of time.  You could pass unconstrained
-    ## concolic values for both REQUEST_METHOD and PATH_INFO, but then
-    ## zoobar generates around 2000 distinct paths, and that takes many
-    ## minutes to check.
 
     # environ['REQUEST_METHOD'] = fuzzy.mk_str('method')
     # environ['PATH_INFO'] = fuzzy.mk_str('path')
@@ -114,7 +101,7 @@ def filter(inputs):
 def do_concolic_test():
     print "Concolic test begins..."
     fuzzy.concolic_test(test_zoobar, initfunc=init, verifyfunc=verify_result,
-                              filterfunc=filter, verbose=1)
+                        filterfunc=filter, verbose=1)
 
 if __name__ == "__main__":
     do_concolic_test()
