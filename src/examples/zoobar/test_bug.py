@@ -1,4 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+"""
+  A multi-trace concolic tester for the Zoobar application.
+  It does not employ any heuristics; see test_bug_smart.py
+  for heuristics-using tester.
+"""
 
 import sys
 sys.path.append("../../symex")
@@ -26,7 +32,7 @@ def test_bug1():
     except sqlalchemy.exc.IntegrityError:
         print "Verification: Gotcha!"
 
-def test_bug2():
+def test_bug2or3():
     time.sleep(0.1)
     username1 = fuzzy.mk_str('u1')
     username2 = fuzzy.mk_str('u2')
@@ -34,16 +40,19 @@ def test_bug2():
 
 ## Initialization functions
 def init1():
-    os.system("make init")
+    os.system("python init.py 1")
 
 def init2():
-    os.system("make init")
+    os.system("python init.py 2")
+
+def init3():
+    os.system("python init.py 3")
 
 ## Verification functions
 def verify1():
     return True
 
-def verify2():
+def verify2or3():
     pdb = person_setup()
     tdb = transfer_setup()
     
@@ -67,9 +76,23 @@ def verify2():
     return True
 
 ## Actual test function
-def do_concolic_test():
+def do_concolic_test(ind):
     print "Multi-trace concolic test begins..."
-    fuzzy.concolic_test(test_bug1, initfunc=init1, verifyfunc=verify1, verbose=1)
+
+    if ind == 1:
+        # for bug test 1
+        fuzzy.concolic_test(test_bug1, initfunc=init1, verifyfunc=verify1,
+                            verbose=1)
+    elif ind == 2:
+        # for bug test 2
+        fuzzy.concolic_test(test_bug2or3, initfunc=init2, verifyfunc=verify2or3,
+                            verbose=1)
+    elif ind == 3:
+        # for bug test 3
+        fuzzy.concolic_test(test_bug2or3, initfunc=init3, verifyfunc=verify2or3,
+                            verbose=1)
 
 if __name__ == "__main__":
-  do_concolic_test()
+    if len(sys.argv) >= 2:
+        ind = int(sys.argv[1])
+        do_concolic_test(ind)

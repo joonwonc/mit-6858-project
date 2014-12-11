@@ -1,4 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/env python
+
+"""
+  A simple function for checking the concolic test framework works
+  well. "equiv_test" checks if two simple functions "func_a" and
+  "func_b" are equivalent or not.
+"""
 
 import sys
 sys.path.append("../symex")
