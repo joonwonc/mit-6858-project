@@ -9,7 +9,7 @@
 
 import sys
 sys.path.append("../../symex")
-import fuzzy_smart
+import fuzzy
 import symsql
 import time
 import random
@@ -27,7 +27,7 @@ def test_bug1():
     time.sleep(0.1)
 
     try:
-        username = fuzzy_smart.mk_str('username')
+        username = fuzzy.mk_str('username')
         password = '1234'
         register(username, password)
     except sqlalchemy.exc.IntegrityError:
@@ -35,8 +35,8 @@ def test_bug1():
 
 def test_bug2or3():
     time.sleep(0.1)
-    username1 = fuzzy_smart.mk_str('u1')
-    username2 = fuzzy_smart.mk_str('u2')
+    username1 = fuzzy.mk_str('u1')
+    username2 = fuzzy.mk_str('u2')
     transfer(username1,username2,1)
 
 ## Initialization functions
@@ -90,16 +90,16 @@ def do_concolic_test(ind):
 
     if ind == 1:
         # for bug test 1
-        fuzzy_smart.concolic_test(test_bug1, initfunc=init1, verifyfunc=verify1,
+        fuzzy.concolic_test(test_bug1, initfunc=init1, verifyfunc=verify1,
                                   filterfunc=filter1, verbose=1)
     elif ind == 2:
         # for bug test 2
-        fuzzy_smart.concolic_test(test_bug2or3, initfunc=init2,
+        fuzzy.concolic_test(test_bug2or3, initfunc=init2,
                               verifyfunc=verify2or3, filterfunc=filter2or3,
                               verbose=1)
     elif ind == 3:
         # for bug test 3
-        fuzzy_smart.concolic_test(test_bug2or3, initfunc=init3,
+        fuzzy.concolic_test(test_bug2or3, initfunc=init3,
                                   verifyfunc=verify2or3, filterfunc=filter2or3,
                                   verbose=1)
 
