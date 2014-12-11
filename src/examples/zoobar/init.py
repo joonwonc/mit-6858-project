@@ -16,6 +16,8 @@ from zoodb import *
 
 def init_db():
     os.system("make clean")
+    person_setup()
+    transfer_setup()
 
 def init1():
     init_db()
