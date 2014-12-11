@@ -10,6 +10,8 @@
 \usetikzlibrary{shapes,arrows,matrix}
 \usepackage{url}
 
+\usepackage{listings}
+
 \title{Multi-trace Concolic Execution Framework}
 
 \author{Kyel Ok \and Joonwon Choi \and Chanwoo Chung}
@@ -20,9 +22,6 @@
 
 \begin{document}
 \maketitle
-%% \begin{abstract}
-%%   ABSTRACT
-%% \end{abstract}
 
 \section{Introduction}
 
@@ -88,23 +87,30 @@ idea is that by having each thread represent a single client
 interacting with the server, we can simultaneously assign and control
 all the clients sharing the same resources.
 
-% TODO: reference in Lab 3
 We systematically expand the inputs to a multi-client application
-using four growing variables. First, a list of possible concrete
-values for any single client is congregated when they are discovered
-from attempting to branch in new ways as done in Lab 3. Then, using
-such inputs, we form all possible permutations of the inputs that can
-be assigned across the client threads. Once each of the unique
-permutation has been tested, we increase the number of the processes,
-and form a new permutation of the input set for the bigger number of
-processes. Lastly, we try different start times of the client threads
-for the exact same inputs to capture the full state of an
-application. Since clients interacting with a server may produce
-different results depending on the order and the timing of commands
-executed, including the time variable is beneficial. Finally, this
-exponential and infinite growth of the input space is continuously
-exploited to explore the states of a multi-client application until
-the number of parallel processes reaches a user-defined maximum.
+using four growing variables.
+\begin{itemize}
+\item \textit{Concrete values.} A list of possible concrete values
+  for any single client is congregated when they are discovered from
+  attempting to branch in new ways as done in Lab
+  3 \footnote{http://css.csail.mit.edu/6.858/2014/labs/lab3.html}.
+\item \textit{Permutation.} Then, using such inputs, we form all
+  possible permutations of the inputs that can be assigned across the
+  client threads.
+\item \textit{Processes.} Once each of the unique permutation has been
+  tested, we increase the number of the processes, and form a new
+  permutation of the input set for the bigger number of processes.
+\item \textit{Time offset.} Lastly, we try different start times of the
+  client threads for the exact same inputs to capture the full state
+  of an application.
+\end{itemize}
+
+Since clients interacting with a server may produce different results
+depending on the order and the timing of commands executed, including
+the time variable is beneficial. Finally, this exponential and
+infinite growth of the input space is continuously exploited to
+explore the states of a multi-client application until the number of
+parallel processes reaches a user-defined maximum.
 
 % TODO: [maybe have a flow-diagram or pseudo-code for the 5 loops?]
 
@@ -132,7 +138,7 @@ threads in a linear fashion.
 
 \begin{figure}
   \begin{center}
-    \includegraphics[width=0.9\textwidth]{graph.png}
+    \includegraphics[width=0.75\textwidth]{graph.png}
   \end{center}
   \caption{Bug occurences and time difference}
   \label{fig:error}
@@ -198,5 +204,116 @@ shared resources. We used the developed concolic execution framework
 to uncover three new bugs in the zoobar applications, and have
 developed attack scripts to exploit the automatically found bugs.
 
+\newpage
+\appendix
+
+\section{Appendix: bugs found in the Zoobar application}
+
+\subsection{Registering two users at once}
+
+\begin{figure}
+  \begin{lstlisting}[language=Python]
+def register(username, password):
+  db = person_setup()
+  person = db.query(Person).get(username)
+  if person:
+    return None
+  newperson = Person()
+  newperson.username = username
+  newperson.password = password
+  db.add(newperson)
+  db.commit()
+  return newtoken(db, newperson)
+  \end{lstlisting}
+  \caption{Registration function in Zoobar}
+  \label{fig:registration}
+\end{figure}
+
+As seen in Fig. \ref{fig:registration}, Before \texttt{db.commit()} is
+called, \texttt{register()} is invoked twice which will add the same
+user twice \texttt{withdb.add()} this will cause the second
+\texttt{add()} to crash the second user's browser.
+
+\subsection{Sending zoobar twice}
+
+\begin{figure}
+  \begin{lstlisting}[language=Python]
+def transfer(sender, recipient, zoobars):
+  persondb = person_setup()
+  senderp = persondb.query(Person).get(sender)
+  recipientp = persondb.query(Person).get(recipient)
+
+  sender_balance = senderp.zoobars - zoobars
+  recipient_balance = recipientp.zoobars + zoobars
+
+  if sender_balance < 0 or recipient_balance < 0:
+    raise ValueError()
+
+  senderp.zoobars = sender_balance
+  recipientp.zoobars = recipient_balance
+  persondb.commit()
+
+  transfer = Transfer()
+  transfer.sender = sender
+  transfer.recipient = recipient
+  transfer.amount = zoobars
+  transfer.time = time.asctime()
+
+  transferdb = transfer_setup()
+  transferdb.add(transfer)
+  transferdb.commit()
+  \end{lstlisting}
+  \caption{Transfer function in Zoobar}
+  \label{fig:transfer}
+\end{figure}
+
+Suppose \textit{user A} invokes two \texttt{transfer()} functions
+before \texttt{persondb.commit()} is called. As seen in
+Fig. \ref{fig:transfer}, \texttt{persondb} gets written with the same
+value twice and transfer will record two transfers when only one took
+place. For example, \textit{A} invokes transfer of 5 zoobars
+twice. \textit{B} receives only 5, but transfer log will show two
+instances of sending 5 which means \textit{A} can claim he/she has
+sent 10 zoobars to \textit{B} while he had only sent 5 zoobars.
+
+\subsection{Sending zoobar twice by different users}
+
+We could find the other bug in the \texttt{transfer} function in
+Fig. \ref{fig:transfer}. Suppose \textit{user A} starts with 100
+zoobars, \textit{B} starts with 10 zoobars, and \textit{C} starts with
+10 zoobars. \textit{A} sends \textit{C} 100 zoobars. Right before
+\texttt{persondb.commit()} is called \textit{B} finishes
+\texttt{get(sender)} and \texttt{get(recipient)} which returns 10
+zoobars for \textit{C} and \textit{B}. Now, \textit{A} finishes
+\texttt{persondb.commit()}, which causes \textit{C} to be at 110 and
+\textit{A} at 0. Now, \textit{B} calls \texttt{persondb.commit()}
+which causes \textit{B} to go down to 0, and cause \textit{C} to go
+down to 20 zoobars instead of 130. Thus, the resulting zoobar counts
+would be:
+\begin{itemize}
+\item A: 0 zoobars
+\item B: 0 zoobars
+\item C: 20 zoobars
+\end{itemize}
+
+\section{Appendix: attack result}
+
+\begin{figure}
+  %% \includegraphics{bug1.pdf}
+  \caption{Client-side error of bug 1}
+  \label{fig:bug1c}
+\end{figure}
+
+\begin{figure}
+  %% \includegraphics{bug1.pdf}
+  \caption{Server-side error of bug 1}
+  \label{fig:bug1s}
+\end{figure}
+
+\begin{figure}
+  %% \includegraphics{bug1.pdf}
+  \caption{Attack result of bug 2}
+  \label{fig:bug1}
+\end{figure}
 
 \end{document}
