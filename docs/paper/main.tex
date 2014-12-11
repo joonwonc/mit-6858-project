@@ -162,8 +162,19 @@ application to automatically detect possible multi-client bugs that
 were missed in the standard single-trace concolic execution done in
 Lab 3.
 
-We have found three new bugs in the zoobar application. The bugs are
-as extreme as crashing the web browser to having zoobars lost.
+We have found three new critical bugs and a few similar minor bugs 
+in the zoobar application. The critical bugs are as extreme as crashing the 
+web server to having zoobars lost. We omit the full description for minor bugs
+due to their similarity to the critical bugs.
+\subsection{Critical bugs found}
+Details of these bugs below are explained in Appendix A.
+\begin{itemize}
+  \item Server crashes when two users try to register with the same userid.
+  \item When user A transfers zoobars to user B twice, only one of them is
+  executed while both are logged.
+  \item When user A and B transfer zoobars to user C at the same time, zoobars
+  of A and B are withdrawn while only one of them is credited to user C.
+\end{itemize}
 
 \subsection{Timing tests}
 
