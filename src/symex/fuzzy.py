@@ -1,3 +1,8 @@
+"""
+  A concolic test function supporting multi-trace. (multi-threads)
+  The original version comes from z3 python API.
+  (http://g.csail.mit.edu/gitweb/?p=z3str.git)
+"""
 
 import z3str
 import z3
@@ -753,9 +758,8 @@ from multiprocessing import *
 def do_nothing():
   return
 
-## TODO: implement repetition, maxiter
 def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
-                  maxiter = 10000, maxproc = 2, repetition = 5, verbose = 0):
+                  maxproc = 2, verbose = 0):
   ## "checked" is the set of constraints we already sent to Z3 for
   ## checking.  use this to eliminate duplicate paths.
   checked = set()

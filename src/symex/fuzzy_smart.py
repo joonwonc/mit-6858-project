@@ -1,3 +1,9 @@
+"""
+  A concolic test function supporting multi-trace. (multi-threads)
+  A heuristic is added to this version, compared with fuzzy.py.
+  The original version comes from z3 python API.
+  (http://g.csail.mit.edu/gitweb/?p=z3str.git)
+"""
 
 import z3str
 import z3
@@ -754,7 +760,6 @@ def do_nothing():
 def filter_nothing(inputs):
   return list(inputs)
 
-## TODO: implement repetition, maxiter
 def concolic_test(testfunc, initfunc = do_nothing, verifyfunc = do_nothing,
                   filterfunc = filter_nothing, maxproc = 2, verbose = 0):
   ## "checked" is the set of constraints we already sent to Z3 for
